@@ -25,7 +25,7 @@ const divide = (operand1,operator) => {
 }
 
 //Global Variables
-let operation = ``;
+let operatorInUse = ``;
 let operand = ``;
 let firstOperand = ``;
 let result = ``;
@@ -36,28 +36,28 @@ function operate(operand1,operator,operand2){
         result = add(Number(operand1),Number(operand2));
         display.textContent = result;
         operand = result;
-        operation = ``;
+        operatorInUse = ``;
         return result;
     } else if(operator == `*`){
         result = multiply(Number(operand1),Number(operand2));
         display.textContent = result;
         operand = result;
-        operation = ``;
+        operatorInUse = ``;
         return result;
     } else if(operator == `-`){
         result = subtract(Number(operand1),Number(operand2));
         display.textContent = result;
         operand = result;
-        operation = ``;
+        operatorInUse = ``;
         return result;
     } else if(operator == `/`){
         result = divide(Number(operand1),Number(operand2));
         display.textContent = result;
         operand = result;
-        operation = ``;
+        operatorInUse = ``;
         return result;
         }
-    operate(firstOperand, operation, operand);
+    operate(firstOperand, operatorInUse, operand);
 }
 
 //Store Operands Function
@@ -67,13 +67,13 @@ function storeOperands(e){
 }
 //Store Operator Function
 function storeOperator(e){
-    if(operation == `+` || operation == `-` || operation == `*` || operation == `/`){
-        operate(firstOperand, operation, operand);
+    if(operatorInUse == `+` || operatorInUse == `-` || operatorInUse == `*` || operatorInUse == `/`){
+        operate(firstOperand, operatorInUse, operand);
     }
     firstOperand = operand;
     operand = ``;
-    operation = e.target.textContent;
-    display.textContent = operation;
+    operatorInUse = e.target.textContent;
+    display.textContent = operatorInUse;
 }
 //Clear All Function
 function clearAll(){
@@ -81,5 +81,5 @@ function clearAll(){
     result = ``;
     firstOperand = ``;
     operand = ``;
-    operation = ``;
+    operatorInUse = ``;
 }
