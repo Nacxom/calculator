@@ -22,9 +22,66 @@ let operate = (num1,num2,operator) => {
     } else if (operator == `divisionOperator`) {
         result = divide(num1,num2);
     }
-    // operatorPressed = false;
-    console.log(num1);
-    console.log(num2);
-    console.log(operator);
-    console.log(result);
+    console.log(`num1:${num1},\noperator:${operator},\nnum2:${num2},\nresult:${result},\noperatorPressed:${operatorPressed}`);
+
+    displayFunction(result);
 }
+// Global Variables
+let operatorPressed = false;
+let num1 = 0;
+let num2 = 0;
+let operator;
+let result;
+
+
+//Store Num Function
+let storeNum = (e) => {
+    if (operatorPressed) {
+        num2 = Number(`${num2}${e.target.value}`);
+        displayFunction(num2);
+    } else {
+        num1 = Number(`${num1}${e.target.value}`);
+        displayFunction(num1);
+    }
+}
+
+//Display Function
+let displayFunction = (num) => {
+    display.textContent = num;
+}
+
+//Clear Display Function
+let clearDisplay = () => {
+    num1 = 0;
+    num2 = 0;
+    operatorPressed = false;
+    display.textContent = 0;
+}
+
+
+//Store Operator Function
+let storeOperator = (e) => {
+    if(operatorPressed === false) {
+        operatorStatus();
+    }
+    operator = `${e.target.id}`;
+}
+
+//Operator Status Changer Function
+let operatorStatus = () => {
+    if (operatorPressed === false) {
+        operatorPressed = true;
+    } else {
+        operatorPressed = false;
+    }
+}
+
+//Event Listeners
+numBtns.forEach(button => button.addEventListener('click', storeNum));
+operatorBtns.forEach(button => button.addEventListener('click', storeOperator));
+equalBtn.onclick = () => operate(num1,num2,operator);
+clearBtn.addEventListener('click', clearDisplay);
+
+
+
+
