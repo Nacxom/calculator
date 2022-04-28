@@ -1,5 +1,5 @@
 # Calculator
-Simple Calculator created with **HTML** **CSS** and **JS** [curriculum](https://www.theodinproject.com/paths/foundations/courses/foundations).
+Simple Calculator created with **HTML** **CSS** and **JS** from The Odin Project [curriculum](https://www.theodinproject.com/paths/foundations/courses/foundations).
 
 **Live version** is [here](https://nacxom.github.io/calculator/).
 ### First stage | Basic math functions and DOM manipulation.
